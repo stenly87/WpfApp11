@@ -7,15 +7,18 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListHumanPage">
-    <ListBox 
+    <ListBox Grid.Row="1"
         SelectedItem="{Binding SelectedHuman}"
         ItemsSource="{Binding Humans}"
         DisplayMemberPath="LastName">
-        <ListBox.ContextMenu>
-            <ContextMenu>
-                <MenuItem Header="Редактировать" Command="{Binding EditHuman}"/>
-                <MenuItem Header="Удалить" Command="{Binding RemoveHuman}"/>
-            </ContextMenu>
-        </ListBox.ContextMenu>
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Редактировать" Command="{Binding EditHuman}"/>
+                    <MenuItem Header="Удалить" 
+                          Command="{Binding RemoveHuman}"
+                          CommandParameter="{Binding SelectedHuman}"
+                           />
+                </ContextMenu>
+            </ListBox.ContextMenu>
     </ListBox>
 </Page>

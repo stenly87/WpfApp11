@@ -32,4 +32,29 @@ namespace WpfApp11
             action();
         }
     }
+
+    public class CustomCommandTarget : ICommand
+    {
+        Action<object> action;
+        public CustomCommandTarget(Action<object> action)
+        {
+            this.action = action;
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return parameter != null;
+        }
+
+        public void Execute(object parameter)
+        {
+            action(parameter);
+        }
+    }
 }
