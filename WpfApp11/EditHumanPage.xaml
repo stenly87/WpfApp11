@@ -8,10 +8,10 @@
       d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
         <Label Content="Фамилия"/>
-        <TextBox Text="{Binding LastName}"/>
+        <TextBox Text="{Binding Human.LastName}"/>
         <Label Content="Имя"/>
-        <TextBox Text="{Binding FirstName}"/>
-        <Button Content="Save" Click="AddHuman" HorizontalAlignment="Center" Padding="5" Margin="3"/>
-        <Button Content="List humans" Click="ListHuman" HorizontalAlignment="Center" Padding="5" Margin="3"/>
+        <TextBox Text="{Binding Human.FirstName}"/>
+        <Button Content="Save" Command="{Binding AddHuman}" HorizontalAlignment="Center" Padding="5" Margin="3"/>
+        <Button Content="List humans" Command="{Binding ListHuman}" HorizontalAlignment="Center" Padding="5" Margin="3"/>
     </StackPanel>
 </Page>

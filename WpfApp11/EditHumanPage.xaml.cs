@@ -20,31 +20,15 @@ namespace WpfApp11
     /// </summary>
     public partial class EditHumanPage : Page
     {
-        Human human;
         public EditHumanPage()
         {
             InitializeComponent();
-            human = new Human();
-            DataContext = human;
+            DataContext = new EditHumanViewModel();
         }
         public EditHumanPage(Human selectedHuman)
         {
             InitializeComponent();
-            human = selectedHuman;
-            DataContext = human;
-        }
-
-        private void AddHuman(object sender, RoutedEventArgs e)
-        {
-            if (!Data.Humans.Contains(human))
-                Data.Humans.Add(human);
-            human = new Human();
-            DataContext = human;
-        }
-
-        private void ListHuman(object sender, RoutedEventArgs e)
-        {
-            Data.CurrentPage = new ListHumanPage();
+            DataContext = new EditHumanViewModel(selectedHuman);
         }
     }
 }
